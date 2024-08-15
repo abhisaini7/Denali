@@ -68,7 +68,12 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const bookRanking = new BookRanking(books);
-    bookRanking.updateQuestion();
+
+    document.getElementById('start-button').addEventListener('click', () => {
+        document.getElementById('start-button').style.display = 'none';
+        document.getElementById('question-container').style.display = 'block';
+        bookRanking.updateQuestion();
+    });
 
     document.getElementById('option1').addEventListener('click', () => {
         bookRanking.compareBooks(0);
@@ -77,6 +82,4 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('option2').addEventListener('click', () => {
         bookRanking.compareBooks(1);
     });
-
-    document.getElementById('question-container').style.display = 'block';
 });
